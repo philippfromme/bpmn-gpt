@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "plugin:bpmn-io/browser",
+    "plugin:bpmn-io/jsx"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "globals": {
+    "process": "readonly"
+  },
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/react-in-jsx-scope": "error"
+  },
+  "plugins": [
+    "import"
+  ],
+  "settings": {
+    "react": {
+      "version": "17.0"
+    }
+  },
+  "overrides": [
+    {
+      "files": [ "karma.config.js", "webpack.config.js" ],
+      "extends": "plugin:bpmn-io/node"
+    }
+  ]
+}

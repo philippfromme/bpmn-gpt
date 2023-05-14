@@ -1,0 +1,125 @@
+{
+  "id": "Process_1",
+  "description": "Hiring process",
+  "elements": [
+    {
+      "id": "StartEvent_1",
+      "name": "Application Received",
+      "type": "bpmn:StartEvent",
+      "parent": "Process_1"
+    },
+    {
+      "id": "Task_1",
+      "name": "Screen Application",
+      "type": "bpmn:Task",
+      "parent": "Process_1"
+    },
+    {
+      "id": "ExclusiveGateway_1",
+      "name": "Is applicant qualified?",
+      "type": "bpmn:ExclusiveGateway",
+      "parent": "Process_1"
+    },
+    {
+      "id": "Task_2",
+      "name": "Invite for Interview",
+      "type": "bpmn:Task",
+      "parent": "Process_1"
+    },
+    {
+      "id": "IntermediateCatchEvent_1",
+      "name": "Invitation Accepted",
+      "type": "bpmn:IntermediateCatchEvent",
+      "eventDefinitionType": "bpmn:MessageEventDefinition",
+      "parent": "Process_1"
+    },
+    {
+      "id": "Task_3",
+      "name": "Conduct Interview",
+      "type": "bpmn:Task",
+      "parent": "Process_1"
+    },
+    {
+      "id": "EndEvent_1",
+      "name": "Interview Conducted",
+      "type": "bpmn:EndEvent",
+      "parent": "Process_1"
+    },
+    {
+      "id": "Task_4",
+      "name": "Send Rejection Email",
+      "type": "bpmn:Task",
+      "parent": "Process_1"
+    },
+    {
+      "id": "EndEvent_2",
+      "name": "Applicant Rejected",
+      "type": "bpmn:EndEvent",
+      "parent": "Process_1"
+    },
+    {
+      "id": "SequenceFlow_1",
+      "name": "",
+      "type": "bpmn:SequenceFlow",
+      "source": "StartEvent_1",
+      "target": "Task_1",
+      "parent": "Process_1"
+    },
+    {
+      "id": "SequenceFlow_2",
+      "name": "",
+      "type": "bpmn:SequenceFlow",
+      "source": "Task_1",
+      "target": "ExclusiveGateway_1",
+      "parent": "Process_1"
+    },
+    {
+      "id": "SequenceFlow_3",
+      "name": "Yes",
+      "type": "bpmn:SequenceFlow",
+      "source": "ExclusiveGateway_1",
+      "target": "Task_2",
+      "parent": "Process_1"
+    },
+    {
+      "id": "SequenceFlow_4",
+      "name": "",
+      "type": "bpmn:SequenceFlow",
+      "source": "Task_2",
+      "target": "IntermediateCatchEvent_1",
+      "parent": "Process_1"
+    },
+    {
+      "id": "SequenceFlow_5",
+      "name": "",
+      "type": "bpmn:SequenceFlow",
+      "source": "IntermediateCatchEvent_1",
+      "target": "Task_3",
+      "parent": "Process_1"
+    },
+    {
+      "id": "SequenceFlow_6",
+      "name": "",
+      "type": "bpmn:SequenceFlow",
+      "source": "Task_3",
+      "target": "EndEvent_1",
+      "parent": "Process_1"
+    },
+    {
+      "id": "SequenceFlow_7",
+      "name": "No",
+      "type": "bpmn:SequenceFlow",
+      "source": "ExclusiveGateway_1",
+      "target": "Task_4",
+      "parent": "Process_1"
+    },
+    {
+      "id": "SequenceFlow_8",
+      "name": "",
+      "type": "bpmn:SequenceFlow",
+      "source": "Task_4",
+      "target": "EndEvent_2",
+      "parent": "Process_1"
+    }
+  ]
+}

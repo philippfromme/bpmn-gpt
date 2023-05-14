@@ -1,1 +1,3 @@
-# bpmn-gpt
+# BpmnGPT
+
+![](docs/screenshot.png)
