@@ -23,8 +23,7 @@ The outgoing sequence flows should be labeled with the possible answers to these
 All other sequence flows should not be labeled.
 Start events must have one outgoing sequence flow.
 End events must have one incoming sequence flow.
-All other activities must have at least one of each.
-{format_instructions}`;
+All other activities must have at least one of each.`;
 
 const createProcessPrompt = new PromptTemplate({
   template: `You are a BPMN expert that creates a BPMN process according to a description.
