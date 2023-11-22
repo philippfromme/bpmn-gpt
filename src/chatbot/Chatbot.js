@@ -5,6 +5,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+
 import { render } from 'react-dom';
 
 import { Button, Heading, InlineLoading, TextInput } from '@carbon/react';
@@ -13,13 +14,9 @@ import { ChatBot, Close, SendAlt, UserAvatar } from '@carbon/icons-react';
 
 import classnames from 'classnames';
 
-import { BpmnGPT } from './langchain';
-
-import dummyResponse from './dummy-response.txt';
+import { BpmnGPT } from './BpmnGPT';
 
 import { fromJson } from './generator';
-
-const useDummyResponse = false;
 
 export default class ChatbotUi {
   constructor(bpmnjs, canvas) {
@@ -70,16 +67,18 @@ function App({ bpmnGPT, bpmnjs }) {
       if (lastResponse) {
 
         // update
-        response = await (useDummyResponse ? dummyPrompt() : bpmnGPT.updateBpmn(prompt, lastResponse));
+        response = await bpmnGPT.updateBpmn(prompt, lastResponse);
       } else {
 
         // create
-        response = await (useDummyResponse ? dummyPrompt() : bpmnGPT.createBpmn(prompt));
+        response = await bpmnGPT.createBpmn(prompt);
       }
+
+      console.log('respone', response);
 
       setLastResponse(response);
 
-      const json = JSON.parse(response);
+      const json = response;
 
       console.log('json', json);
 
