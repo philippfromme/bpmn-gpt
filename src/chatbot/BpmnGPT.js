@@ -198,7 +198,7 @@ export class BpmnGPT {
       }),
       userPrompt: Mustache.render(`Process: {{process}}
 Requested changes: {{requestedChanges}}`, {
-        process,
+        process : JSON.stringify(process, null, 2),
         requestedChanges
       })
     });
@@ -227,7 +227,7 @@ Requested changes: {{requestedChanges}}`, {
           'content': userPrompt
         }
       ],
-      model: 'gpt-4-1106-preview',
+      model: 'gpt-4o',
       response_format: { type: 'json_object' }
     });
 
